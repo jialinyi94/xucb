@@ -15,7 +15,8 @@
 				"ms-python.python",
 				"ms-vscode.cpptools",
 				"GitHub.copilot",
-				"ms-vscode.cpptools-extension-pack"
+				"ms-vscode.cpptools-extension-pack",
+				"ms-python.flake8"
 			]
 		}
 	}
