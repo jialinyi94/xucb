@@ -1,8 +1,6 @@
 #include <vector>
 #include <cmath>
 #include <algorithm>
-#include <stdexcept>
-
 
 class UCB {
 private:
@@ -12,11 +10,7 @@ private:
     int total_count;
 
 public:
-    UCB(int n_arms) : n_arms(n_arms), values(n_arms, 0.0), counts(n_arms, 0), total_count(0) {
-        if (n_arms <= 0) {
-            throw std::invalid_argument("Number of arms must be positive");
-        }
-    }
+    UCB(int n_arms) : n_arms(n_arms), values(n_arms, 0.0), counts(n_arms, 0), total_count(0) {}
 
     int select_arm() {
         for (int i = 0; i < n_arms; i++) {
@@ -33,9 +27,6 @@ public:
     }
 
     void update(int chosen_arm, double reward) {
-        if (chosen_arm < 0 || chosen_arm >= n_arms) {
-            throw std::out_of_range("Invalid arm index");
-        }
         counts[chosen_arm]++;
         total_count++;
         double n = counts[chosen_arm];
@@ -44,9 +35,6 @@ public:
     }
 
     std::vector<int> multi_step(int num_steps, const double* rewards) {
-        if (num_steps <= 0) {
-            throw std::invalid_argument("Number of steps must be positive");
-        }
         std::vector<int> chosen_arms;
         for (int i = 0; i < num_steps; i++) {
             int arm = select_arm();
