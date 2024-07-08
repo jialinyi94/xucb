@@ -14,7 +14,8 @@
 			"extensions": [
 				"ms-python.python",
 				"ms-vscode.cpptools",
-				"GitHub.copilot"
+				"GitHub.copilot",
+				"ms-vscode.cpptools-extension-pack"
 			]
 		}
 	}
